@@ -11,9 +11,8 @@ permalink: /administration/federation/setup_federation
 
 # Setup Federation
 ## Context
-GitHub tags: v3.0.0, v3.0.1, v3.0.2
 
-This major release brings the federation feature to OntoPortal, enabling users to browse ontologies and search for classes and concepts across multiple federated portals. This is a joint release with EcoPortal, EarthPortal and BiodivPortal i.e., each portal is now connected to each other and displays some content from the others.
+The OntoPortal federation enables users to browse ontologies and search for classes and concepts across multiple federated portals. This federated features were firdt made available as a joint release with AgroPortal, EcoPortal, EarthPortal and BiodivPortal i.e., each portal is now connected to each other and displays some content from the others.
 
 Technically speaking, this federation is done “at the user interface level” as the backends and APIs of each portal are already the same. The federation architecture is rather simple, based on the project Ontology API Ruby Client which has been changed to query and aggregate the results from multiple backends (as illustrated). The user interfaces have been significantly changed to handle the results coming from different portals while helping users to understand what is going on and addressing performance issues.
 
@@ -32,7 +31,7 @@ By convention:
 - The APIkey of this user must be used for the pull locations for duplicates (see bellow).
 
 ## Setup the UI
-In  the configuration file `config/bioportal_config_appliance.rb`  add/update `$PORTAL_INSTANCES` variable, all items with an  apikey  present we be enabled to be federate with.
+In  the configuration file `config/bioportal_config_appliance.rb`  add/update `$PORTAL_INSTANCES` variable, all items with a present apikey will be federate with.
 ```ruby 
 $PORTALS_INSTANCES = [
   {
@@ -96,7 +95,7 @@ $PORTALS_INSTANCES = [
 ```
 
 ## Setup the API
-in the configuration file `config/environments/appliance.rb` add/edit this lines.
+In the configuration file `config/environments/appliance.rb` add/edit these lines.
 
 ```ruby
  config.ui_name                       = 'TestPortal'

@@ -14,12 +14,12 @@ With this joint release, the federated portals have adopted similar user interfa
 
 ![Federated UIs]({{site.figures_link}}/OntoPortal/federation/ui-federations.png)
 
-Since release v2.7.4, AgroPortal’s homepage includes a component to link to other public portals in the OntoPortal Alliance. Now, when mousing over the logos, the portal with which AgroPortal is federated will display some information about them such as a description and the number of ontologies available (see #744)
+Since release v2.7.4, AgroPortal’s homepage includes a component to link to other public portals in the OntoPortal Alliance. Now, in each portal, when mousing over the logos, the portals with which it is federated will display some information about them such as a description and the number of ontologies available.
 
 ![Federated Homepage]({{site.figures_link}}/OntoPortal/federation/homepage-federation.png)
 
-This functionality is implemented by means of a new web service endpoint implemented by each federated portal to describe itself. Going now to https://data.agroportal.lirmm.fr/ will return a JSON-LD description of AgroPortal that other portals can consume.
+This functionality is implemented by means of a new web service endpoint implemented by each federated portal to describe itself that other federated portal know how to interpret. For instance, on AgroPortal the base API web service URL (https://data.agroportal.lirmm.fr)  will return a JSON-LD description of AgroPortal that other portals can consume.
 
 ![API description for federated portals]({{site.figures_link}}/OntoPortal/federation/api-configuration-federation.png)
 
-Eventually, the description of AgroPortal (and any OntoPortal) will be based on the `mod:SemanticArtefactCatalogue` object specified by the MOD v3.2 metadata vocabulary.
+As this service was not existing before, we have here implemented part of the MOD-API specififcation offering the description of the federated OntoPortals as a mod:SemanticArtefactCatalogue object as specified by the MOD v3.2 metadata vocabulary.
