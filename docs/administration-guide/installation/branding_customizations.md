@@ -49,7 +49,7 @@ where many elements adopt the parent color.
 First, review the instructions in the <a href="{{site.baseurl}}/administration/steps/advanced_configuration">Advanced Configuration</a> section. Our example is based on the Advanced Customization instructions at the end of that document.
 
 ### 1 set URL for appliance:
-ssh to appliance and change user to ontoportal. 
+ssh to appliance and change user to ontoportal.
 
 ```bash
 [ubuntu@appliance ]$ sudo su - op-admin
@@ -68,12 +68,12 @@ $SITE = 'Demo OntoPortal Appliance'
 ### 2. Add custom logo and change the color of the header.
 
 1. Copy your custom logo file to `/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/images/logos/bioportal-logo.png`
-2. the Copy original theme color variables scss file
+2. Copy original theme color variables scss file
 ```bash
 cp /opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/app/assets/stylesheets/theme-variables.scss.erb
 /opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/assets/stylesheets`
 ```
-then change change variables like `primary`, `secondary`, `light` variables in the ontoportal section:
+then change variables like `primary`, `secondary`, `light` to the desired value in the ontoportal section:
 
  ```ruby
   "ontoportal"  => {
