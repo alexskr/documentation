@@ -48,7 +48,7 @@ Once the necessary configuration adjustments are made,
 run the Appliance as follows:
 
 ```bash
-[ubuntus@appliance ]$ sudo su - 
+[ubuntu@appliance ]$ sudo su - 
 [op-admin@appliance ]$ cd /opt/ontoportal/virtual_appliance/deployment/
 [op-admin@appliance deployment]$ ./setup_deploy_env.sh
 Setting up deployment environment
@@ -81,13 +81,15 @@ and run the Appliance with them, perform the following steps.
 `git pull` will pull in latest deployment scripts to enable deployment of latest compatible OntoPortal application code.
 
 ### Set up deployment environment
-`sh setup_deploy_env.sh` gets latest compatible for the version of the appliance you are running UI and API code and installs necessary utilities for the deployment such as Capistrano.
+`./setup_deploy_env.sh` gets latest compatible for the version of the appliance you are running UI and API code and installs necessary utilities for the deployment such as Capistrano.
 
-### Deploy the user interface
+### Deploy UI
 `./deploy_ui`
-Deploy API:
+
+### Deploy API:
 `./deploy_api`
-Deploy ncbo_cron:
+
+### Deploy ncbo_cron:
 `./deploy_ncbo_cron`
 
 ## More advanced customization
@@ -95,7 +97,7 @@ Deploy ncbo_cron:
 It is possible to overwrite specific application files by simply dropping modified versions of those files in `/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui` and then running the deployment script. The deployment script will sync all files from configuration directory overwriting files in the directory from which application is deployed.
 
 ### Set up ontology analytics
-To make the ontology popularity statistics work, including the front page graphs, the browse page popularity sort order, and the search and recommender prioritizations, the Google Analytics has to be set up per the instructions on the <a href="{{site.baseurl}}/administration/management/google_analytics_management/">Google Analytics Management</a>  page.
+To make the ontology popularity statistics work, including the front page graphs, the browse page popularity sort order, and the search and recommender prioritizations, the Google Analytics has to be set up per the instructions on the <a href="{{site.baseurl}}/administration/management/google_analytics_management">Google Analytics Management</a>  page.
 
 ## Next step
 

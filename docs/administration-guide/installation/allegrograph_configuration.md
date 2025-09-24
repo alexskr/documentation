@@ -9,6 +9,10 @@ grand_parent: Administration Guide
 permalink: /administration/steps/allegrograph_configuration
 ---
 
+```diff
+this doc is not applicable to appliance v4+
+```
+
 # AllegroGraph Configuration
 
 These settings will configure your system to use AllegroGraph RDF store 

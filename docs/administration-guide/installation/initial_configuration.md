@@ -19,22 +19,19 @@ Your {{site.opva}} can use either 4store or AllegroGraph as its RDF backend stor
 
 **Version 4 Update**: Starting with version 4.0, the virtual appliance ships with AllegroGraph as the default RDF store. If you want to switch back to using 4store instead of the default AllegroGraph RDF store, visit the <a href="{{site.baseurl}}/administration/steps/4store_configuration">4store Configuration</a> page for detailed instructions.
 
-### Using AllegroGraph (Default in v4)
-
-If you want to keep using AllegroGraph (the default in v4), visit the <a href="{{site.baseurl}}/administration/steps/allegrograph_configuration">AllegroGraph Configuration</a> page for additional configuration options before you begin adding ontologies.
-
 ## Adding ontologies
 
 The detailed ontology submission process is described in the <a href="{{site.baseurl}}/administration/ontologies/submitting_ontologies">Submitting Ontologies</a> section.
 
-To start, since you don't have any non-administration accounts, you can add an ontology using the OntoPortal Admin User at `http://{ip_address_of_appliance}/ontologies/new`.
-
+To start, since you don't have any non-administration accounts, you can add an ontology using the OntoPortal Admin User at `https://{ip_address_of_appliance}/ontologies/new`.
 
 ## Enabling emails
-
+```Diff
+# This section needs further review for accuracy.
+```
 To let the system send emails for lost passwords, notes, and ontology processing reports, 
-you need to provide a valid mail server (smtp) configuration. 
-The configuration should be provided in the `/srv/ontoportal/ontologies_api/current/config/environments/appliance.rb` file.
+you need to provide a valid mail server (smtp) configuration.
+The configuration should be provided in the `/opt/ontoportal/ontologies_api/current/config/environments/appliance.rb` file.
 
 Here are the available settings:
 
@@ -51,10 +48,10 @@ Here are the available settings:
  config.smtp_domain            = "example.org"
 ```
 
-Once you have changed your settings, you will need to restart the server 
+Once you have changed your settings, you will need to restart the stack 
 by running the command
 ```
-/sbin/service unicorn restart
+sudo opctl restart
 ```
 
 ## Next step

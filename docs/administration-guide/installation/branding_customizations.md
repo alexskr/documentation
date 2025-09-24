@@ -54,7 +54,7 @@ ssh to appliance and change user to ontoportal.
 ```bash
 [ubuntu@appliance ]$ sudo su - op-admin
 ``` 
-edit  /opt/ontoportal/config/site_config.rb and set:
+edit `/opt/ontoportal/config/site_config.rb` and set:
 
 ```
 $REST_HOSTNAME = 'appliance.ontoportal.org'
@@ -76,7 +76,7 @@ cp /opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/app/assets/styl
 then change change variables like `primary`, `secondary`, `light` variables in the ontoportal section:
 
  ```ruby
-   "ontoportal"  => {
+  "ontoportal"  => {
     primary: "#5499a4",
     hover: "#6B96B7",
     secondary: "#ffc107",
@@ -85,12 +85,14 @@ then change change variables like `primary`, `secondary`, `light` variables in t
     text_chip_button_container: "#FFFFFF !important",
     login_btn: "#F1F6FA",
     login_btn_hover_bg: "#CCCCCC",
-  ```
+  },
+```
 
-### 3. Update tagline on the main page: 
+### 3. Update tagline on the main page:
 1. edit `/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/config/locales/en/appliance-overrides.yml`
- and modify line containing `tagline: your ontology repository for your ontologies`
- 
+ and modify line containing
+   `tagline: your ontology repository for your ontologies`
+
 ### 4. Update footer
 1. Copy original footer from
 `/opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/views/application/./views/_footer_appliance.html.haml` to
