@@ -80,11 +80,11 @@ You may wish to flush the other caches on that page as well, so that all the sys
 
 In addition to the log entries shown for the specific ontology,
 you may want to review the entire ontology processing context.
-Many general processing logs can be found in `/srv/ncbo/ncbo_cron/logs`.
+Many general processing logs can be found in `/opt/ontoportal/ncbo_cron/logs`.
 
 In particular, the log from the overnight ontology processing
 (for ontologies that are checked for changes each night)
-can be found at `/srv/ncbo/ncbo_cron/logs/schedule_pull.log`, 
+can be found at `/opt/ontoportal/ncbo_cron/logs/schedule_pull.log`, 
 and similarly named archival logs. 
 
 These logs are helpful when you want to understand why an ontology

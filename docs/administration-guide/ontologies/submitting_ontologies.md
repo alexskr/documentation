@@ -45,14 +45,13 @@ Information on submitting ontologies via the API is provided at the <a href="htt
 The <a href=" https://github.com/ncbo/ncbo_cron/blob/master/bin/ncbo_ontology_process">ncbo_ontology_process</a> script 
 can be used to easily submit an ontology, if the dependencies associated with deploying the system are in place.
 
-To manually reparse an ontology, you need to ssh into the system and run ncbo_ontology_process script after switching to ontoportal user:
+To manually reparse an ontology, you need to ssh into the system and run ncbo_ontology_process script after switching to `op-admin` user:
 
-```
+```bash
 # from the shell:
-sudo su - ontoportal
-cd /srv/ontoportal/ncbo_cron
+sudo su - op-admin
+cd /opt/ontoportal/ncbo_cron
 bin/ncbo_ontology_process -o ONTOLOGY_ACRONYM 
-
 ```
 
 ## How do I know if an ontology has parsed?
@@ -61,7 +60,7 @@ The OntoPortal Web UI will cache old information about ontologies for 60 seconds
 
 In addition, you can look at the REST service directly, which will always give you the most updated information. To do this, visit the following URL:
 
-`http://{your_appliance_ip_or_domain_name}:8080/ontologies/{ontology_acronym}/latest_submission?include=all`
+`https://{your_appliance_ip_or_domain_name}:8443/ontologies/{ontology_acronym}/latest_submission?include=all`
 
 You can look for the submissionStatus attribute to get the status.
 
@@ -73,8 +72,7 @@ See <a href="{{site.baseurl}}/administration/ontologies/troubleshooting_submissi
 
 Parsing progress is logged in the ontology submission repository folder: 
 
-OntoPortal versions 3.0 and higher: `/srv/ontoportal/data/repository/{ontology acronym}/{submission id}`<br />
-Older versions: `/srv/ncbo/repository/{ontology acronym}/{submission id}`
+`/srv/ontoportal/data/repository/{ontology acronym}/{submission id}`
 
 You can also see the latest log from the Ontology Administration tab of the Administration Console page.
 See <a href="{{site.baseurl}}/administration/ontologies/troubleshooting_submissions">Troubleshooting Submissions</a> for more information
@@ -82,4 +80,3 @@ See <a href="{{site.baseurl}}/administration/ontologies/troubleshooting_submissi
 For further information about ontology parsing, 
 please see <a href="{{site.baseurl}}/administration/ontologies/parseable_ontologies">Parseable Ontologies</a>
 and <a href="{{site.baseurl}}/administration/ontologies/troubleshooting_submissions">Troubleshooting Submissions</a>
-

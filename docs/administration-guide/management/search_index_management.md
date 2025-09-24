@@ -38,18 +38,18 @@ There are 4 index cores:
 
 ### Re-index all ontologies
 
-```
-sudo su - ontoportal
-cd /srv/ontoportal/ncbo_cron
-bin/ncbo_ontology_index -a -l logs/reindexing_all.log
+```bash
+sudo su - op-admin
+cd /opt/ontoportal/ncbo_cron
+bin/ncbo_ontology_index -a -l log/reindexing_all.log
 ```
 Re-indexing of all ontologies process deletes all data from the index and starts populating it from scratch.  During this time Appliance search operations will not work as expected because of the incomplete data until it is fully populated.  If you have a large ammount of ontologies and unable to take site down for maitanence then you have an option to re-index all ontologies using alternate core and swap cores after after re-indexing is complete.
 
 The first step is to re-index all ontologies using secondary core:
-```
-sudo su - ontoportal
-cd /srv/ontoportal/ncbo_cron
-bin/ncbo_ontology_index -a -l logs/reindexing_all.log -c http://localhost:8983/solr/term_search_core2
+```bash
+sudo su - op-admin
+cd /opt/ontoportal/ncbo_cron
+bin/ncbo_ontology_index -a -l log/reindexing_all.log -c http://localhost:8983/solr/term_search_core2
 
 ```
 then swap cores after reindexing process is complete:
@@ -64,7 +64,7 @@ curl 'http://localhost:8983/solr/admin/cores?action=SWAP&core=term_search_core1&
 You can re-index specific ontologies you specify. 
 
 ```
-bin/ncbo_ontology_index -o STY,SNOMED -l logs/reindexing_STY_SNOMED.log
+bin/ncbo_ontology_index -o STY,SNOMED -l log/reindexing_STY_SNOMED.log
 ```
 
 

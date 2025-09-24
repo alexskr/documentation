@@ -75,9 +75,9 @@ You use Google Analytics to get your website's data.
       config.analytics_filter_str                    = ''
     ```
   * Perform deployment of UI, API and ncbo_cron which will copy configuration files to the appropriate application directories
-    ```
-    sudo su - ontoportal
-    cd /srv/ontoportal/virtual_appliance/deployment
+    ```bash
+    sudo su - op-admin
+    cd /opt/ontoportal/virtual_appliance/deployment
     ./setup_deploy_env.sh
     ./deploy_ui.sh
     ./deploy_ncbo_cron.sh
@@ -88,10 +88,10 @@ If you have existing Google Analytics data that you have been collecting till no
 
 * Make sure your Universal Analytics configuration is set up properly (see above)
 * Run the following script:
-```
-# sudo su - ontoportal
-# cd /srv/ontoportal/ncbo_cron
-# bundle exec ruby ./bin/generate_ua_analytics_file.rb
+```bash
+sudo su - op-admin
+cd /opt/ontoportal/ncbo_cron
+bundle exec ruby ./bin/generate_ua_analytics_file.rb
 ```
 At the end of the run, the script will generate the file that you specified in:
 ```
@@ -117,10 +117,10 @@ config.cron_ontology_analytics = "15 0 * * 1"
 If you modify this setting, be sure to restart ncbo_cron services (see previous step).
 
 If you need to manually refresh the Analytics data without having to wait for the Cron job to execute, you can run the `ncbo_ontology_analytics_rebuild` script, located in the `ncbo_cron/bin` folder:
-```
-# sudo su - ontoportal
-# cd /srv/ontoportal/ncbo_cron
-# ./bin/ncbo_ontology_analytics_rebuild
+```bash
+sudo su - op-admin
+cd /opt/ontoportal/ncbo_cron
+./bin/ncbo_ontology_analytics_rebuild
 ```
 
 #### Note that this script DOES NOT exist in Virtual Appliance versions prior to v3.0.2! 
@@ -144,7 +144,7 @@ Relevant links are
 
 ## Removing Analytics from OntoPortal UI
 
-In `/srv/ontoportal/bioportal_web_ui/current/app/views/home/index.html.haml` add:
+In `/opt/ontoportal/bioportal_web_ui/current/app/views/home/index.html.haml` add:
 
 ```
  display: none;
@@ -153,7 +153,7 @@ In `/srv/ontoportal/bioportal_web_ui/current/app/views/home/index.html.haml` add
    Ontology Visits #{"in full #{$SITE} " if at_slice?} (#{@analytics.date.strftime("%B %Y")})
 ```
 
-In `/srv/ontoportal/bioportal_web_ui/current/app/views/ontologies/_visits.html.haml` add:
+In `/opt/ontoportal/bioportal_web_ui/current/app/views/ontologies/_visits.html.haml` add:
 
 ```
  display:none;

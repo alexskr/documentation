@@ -89,8 +89,8 @@ Running the generate cache cron job will create new entries in Redis
 using the prefix defined in the config file with `annotator_redis_alt_prefix`
 
 The locations of the configuration files are:
-* /srv/ncbo/ncbo_cron/config/appliance.rb
-* /srv/ncbo/ontologies_api/current/config/environments/appliance.rb
+* /opt/ontoportal/ncbo_cron/config/appliance.rb
+* /opt/ontoportal/ontologies_api/current/config/environments/appliance.rb
 
 _please review/explain the following (is it code to put into one of the files above?)_
 
@@ -116,10 +116,10 @@ So if you are doing a total refresh of the cache and dictionary
 (after a flushall for example) 
 you will have to define the same prefix in Redis current_instance and in config.annotator_redis_alt_prefix.
 
-Then run the following command from the ncbo_cron project (`/srv/ontoportal/ncbo_cron`):
+Then run the following command from the ncbo_cron project (`/opt/ontoportal/ncbo_cron`):
 
 ```
-[ontoportal@appliance ncbo_cron]bin/ncbo_ontology_annotate_generate_cache -a -r -d -l logs/all_cache.log
+[ontoportal@appliance ncbo_cron]bin/ncbo_ontology_annotate_generate_cache -a -r -d -l log/all_cache.log
 ```
 
 It will generates an entry in Redis like this : `c1:term:-1762481778059933889`. 
@@ -159,7 +159,7 @@ To generate the dictionary from the Redis cache (terms prefixed with Redis curre
 ! This section needs review 
 ```
 ```
-/srv/ontoportal/ncbo_cron/bin/ncbo_ontology_annotate_generate_dictionary
+/opt/ontoportal/ncbo_cron/bin/ncbo_ontology_annotate_generate_dictionary
 ```
 
 ## Troubleshooting the Annotator
@@ -211,8 +211,8 @@ The core services are provided by http://services.data.bioportal.lirmmr.fr.
 ```
 
 * The AnnotatorPlus is found at http://{my-appliance-hostname}/annotatorplus
-* The API is found at http://{my-appliance-hostname}:8080/annotatorplus
+* The API is found at https://{my-appliance-hostname}:8443/annotatorplus
  
-Note that the AnnotatorPlus documentation has not been updated in the OntoPortal online documentation page at http://{my-appliance-hostname}:8080/documentation.
+Note that the AnnotatorPlus documentation has not been updated in the OntoPortal online documentation page at https://{my-appliance-hostname}:8443/documentation.
 
 There is more detailed documentation in the [publication supplement](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5972606/bin/bty009_supplement_bioinf-2017-1427.r2-3.pdf)  which is pointed to by the [main paper about this capability](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5972606/).

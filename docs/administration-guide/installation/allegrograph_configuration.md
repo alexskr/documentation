@@ -97,10 +97,10 @@ http://localhost:10035
 
 You should see a page requiring AllegroGraph Username and Password. Ignore the login prompt for the moment. All we needed at this point is to ensure that the AllegroGraph server is up and running.
 
-#### Login to VA as `ontoportal` User
+#### Login to VA as `op-admin` User
 
 ```
-[centos@localhost ~]$ sudo su - ontoportal
+[centos@localhost ~]$ sudo su - op-admin
 [ontoportal@localhost ~]$
 ```
 

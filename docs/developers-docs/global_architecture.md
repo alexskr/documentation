@@ -44,7 +44,7 @@ that can be called, e.g `/ontologies` to display all the ontology or `/search` t
 
 Find its code here: [https://github.com/ontoportal/ontologies_api]( https://github.com/ontoportal/ontologies_api_ruby_client)
 
-Find its documentation here:  go you_appliance_ip:8080/documentation (e.g [https://data.bioontology.org/documentation]( https://github.com/ontoportal/ontologies_api_ruby_client))
+Find its documentation here:  go you_appliance_ip:8443/documentation (e.g [https://data.bioontology.org/documentation]( https://github.com/ontoportal/ontologies_api_ruby_client))
 
 ### Backend models
 Represent our Model layer and define all our Models (e.g Ontology, Class, User,..) and with their corespondent Services and Concerns, 

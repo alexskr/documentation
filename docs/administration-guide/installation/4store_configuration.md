@@ -30,10 +30,10 @@ sudo systemctl disable agraph
 
 ### 2. Update Configuration Files
 
-Login as the `ontoportal` user and navigate to the configuration directories:
+Login as the `op-admin` user and navigate to the configuration directories:
 
 ```bash
-sudo su - ontoportal
+sudo su - op-admin
 ```
 
 **Update configuraiton files for ncbo_cron and ontologies_api:**
@@ -53,7 +53,7 @@ GOO_BACKEND_NAME = '4store'
 ```
 ### 3. Re-Deploy apps with updated configs:
 ```bash
-suo
+sudo su - op-admin
 cd /opt/ontoportal/virtual_appliance/deployment/
 ./deploy_api.sh
 ./deploy_ncbo_cron.sh

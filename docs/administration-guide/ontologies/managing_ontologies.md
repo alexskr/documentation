@@ -32,12 +32,12 @@ ontologies tagged with that slice.
 
 There is no user interface to perform this task. 
 Slices can be added using a console 
-after logging into the Appliance as the `ontoportal` user.
+after logging into the Appliance as the `op-admin` user.
 
 From the bash shell:
 
-```
-cd /srv/ncbo/ncbo_cron
+```bash
+cd /opt/ontoportal/ncbo_cron
 bin/ncbo_cron --console
 # once in the ruby console:
 ont1 = LinkedData::Models::Ontology.find("ONT1").first
@@ -54,17 +54,17 @@ slice.save
 
 There is no user interface to perform this task. 
 Categories and groups can be added using a console 
-after logging into the Appliance as the ontoportal user.
+after logging into the Appliance as the op-admin user.
 
 use ncbo_cron rake task:
 ```
-cd /srv/ontoportal/ncbo_cron
+cd /opt/ontoportal/ncbo_cron
 bundle exec rake group:create['UMLS','Unified Medical Language System']
 ```
 or use ncbo_cron console:
 
 ```
-cd /srv/ontoportal/ncbo_cron
+cd /opt/ontoportal/ncbo_cron
 bin/ncbo_cron --console
 # once in the ruby console:
 category = LinkedData::Models::Category.new
@@ -80,12 +80,6 @@ group.save
 ### How do I add an ontology to a group?
 
 There is no user interface to perform this task.
-
-```diff
-! Why does GOO cache have to be enabled?
-```
-
-The GOO CACHE must be enabled in settings.
 
 ```
 po = LinkedData::Models::Ontology.find("PO").first
@@ -106,7 +100,7 @@ Click on the row (or rows) of the ontology you want to delete,
 select the Group Action "Delete ontology", and press the Execute button.
 
 Deleting also can be done using a console 
-after logging into the Appliance as the ontoportal user.
+after logging into the Appliance as the op-admin user.
 
 ```diff
 ! Verify these instructions
@@ -115,7 +109,7 @@ after logging into the Appliance as the ontoportal user.
 From the bash shell:
 
 ```
-cd /srv/ncbo/ncbo_cron
+cd /opt/ontoportal/ncbo_cron
 bin/ncbo_cron --console
 # once in the ruby console:
 ontology = LinkedData::Models::Ontology.find("MY_ONTOLOGY_ACRONYM").first

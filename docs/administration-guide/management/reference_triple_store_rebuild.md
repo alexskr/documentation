@@ -265,32 +265,32 @@ At this point move the staging data back to production.
 ## Perform metrics calculation
 
 * Host: `{my-appliance-hostname}`
-* User: `ncbo-deployer`
-* pwd:  `/srv/ncbo/ncbo_cron/`
+* User: `op-admin`
+* pwd:  `/opt/ontoportal/ncbo_cron/`
 
-run `bin/ncbo_ontology_metrics -a -l logs/UMLS_metrics.log` in a screen session 
+run `bin/ncbo_ontology_metrics -a -l log/UMLS_metrics.log` in a screen session 
 
 In some cases this script can fail calculating metrics for some ontologies so it is nessesary to verify that metrics is calculated for all ontologies.  re-run the script if there is a large number of ontologies with missing metrics status or manually update metrics for those ontologies.  Missing metrics for any of the ontologies in the "ready" status will cause recommender service to fail untill it is fixed.
 
 ## Re-Index all ontologies
 
-* Host: `ncboprod-parsers1`
-* User: `ncbo-deployer`
-* pwd: `/srv/ncbo/ncbo_cron`
+* Host: `{my-appliance-hostname}`
+* User: `op-admin`
+* pwd: `/opt/ontoportal/ncbo_cron`
 
 reindex terms:
-run `>./bin/ncbo_ontology_index -a -l logs/UMLS_reindex_terms.log` in a screen session
+run `>./bin/ncbo_ontology_index -a -l log/UMLS_reindex_terms.log` in a screen session
 
 reindex properties:
-run `bin/ncbo_ontology_property_index -a -l logs/UMLS_reindex_property.log`
+run `bin/ncbo_ontology_property_index -a -l log/UMLS_reindex_property.log`
 
 Next you will need to swap solr cores
 
 ## Re-generate annotator cache
 
-* Host: `ncboprod-parsers1`
-* User: `ncbo-deployer`
-* pwd: `/srv/ncbo/ncbo_cron`
+* Host: `{my-appliance-hostname}`
+* User: `op-admin`
+* pwd: `/opt/ontoportal/ncbo_cron`
 
 See [Annotator Management]({{site.baseurl}}/administration/management/annotator_management) for details.
 

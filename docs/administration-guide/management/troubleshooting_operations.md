@@ -57,11 +57,11 @@ The fix is to re-index the ontology.
 This should report results if they exist, as it’s a wildcard search:
 
 ```diff
-! possibly following link should use :8080 address
+! possibly following link should use :8443 address
 ```
 
 ```
-http://data.{my-appliance-hostname}/search?q=*&ontologies=OBI
+https://{my-appliance-hostname}:8443/search?q=*&ontologies=OBI
 ```
 
 Also it's possible to look at SOLR directly; this gives you all acronyms in the index:

@@ -35,7 +35,7 @@ OntoPortal provides a Rake task to easily reset the API key of a user (if it has
 Optionally view the list of available Rake tasks with their descriptions:
 
 ```
-$ cd /srv/ontoportal/ncbo_cron
+$ cd /opt/ontoportal/ncbo_cron
 $ bundle exec rake -T
 rake cache:clear                                         # Clear HTTP cache (redis and Rack::Cache)
 rake group:add_ontology[group_acronym,ontology_acronym]  # Add ontology to a group
@@ -53,7 +53,7 @@ rake user:resetroles[username]                           # Reset all roles to LI
 Reset a user's API key to a randomly generated value: 
 
 ```
-$ cd /srv/ontoportal/ncbo_cron
+$ cd /opt/ontoportal/ncbo_cron
 $ bundle exec rake user:apikey:reset[username]
 ```
 
@@ -62,14 +62,14 @@ OntoPortal uses UUID for API keys which can be generated with `uuidgen` command 
 ```
 $ uuidgen
 cf304210-4715-424a-a48d-7ec04fc8924f
-$ cd /srv/ontoportal/ncbo_cron
+$ cd /opt/ontoportal/ncbo_cron
 $ bundle exec rake user:apikey:reset[username,cf304210-4715-424a-a48d-7ec04fc8924f]
 ```
 
 ## Grant administrative privileges to a BioPortal user
 
 ```
-cd /srv/ontoportal/ncbo_cron
+cd /opt/ontoportal/ncbo_cron
 bundle exec rake user:adminify[username]
 ```
 
