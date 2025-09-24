@@ -49,7 +49,7 @@ Where you add the following ports to forward:
 {: .important  }
 If mapping SSH to port 22 didn't work, you can use a different port port (e.g 2222)
 
-Finally start the appliance and connect to the appliance with this command line: `ssh centos@127.0.0.1`
+Finally start the appliance and connect to the appliance with this command line: `ssh ubuntu@127.0.0.1`
 
 {: .warning }
 Important:  if you can't establish an ssh connection with the appliance ,make sure to run first the SSH service in the appliance, using this command: `sudo systemctl enable sshd`

@@ -13,11 +13,11 @@ permalink: /administration/steps/initial_installation
 # General Instruction
 
 You can supply the hostname (machine name) for the virtual machine 
-during the deployment process. 
+during the deployment process.
 Our documentation refers to this hostname as 'my_appliance_hostname',
 in squiggly brackets (and `{my_appliance_hostname}` if in a command).
 
-These steps start your Appliance and set the Appliance ID. 
+These steps start your Appliance and set the Appliance ID.
 
 Once your Appliance is started, you can access it through your browser
 to get the Appliance ID, <a href="{{site.baseurl}}/administration/steps/registration">register your system and obtain a valid license</a>.
@@ -76,8 +76,8 @@ to get the VirtualBox to release the mouse so you can select other windows.
 ### VMWare deployment
 
 Virtual Operating System
-* Username: centos
-* Password: Ontoportal  
+* Username: `ubuntu`
+* Password: `Ontoportal`
 
 On the first boot, you will be able to change your virtual OS password.
 When you are prompted, 
@@ -87,12 +87,12 @@ If in the reset process you enter the wrong default password,
 the entire sequence restarts.
 
 OntoPortal Admin User
-* Username: admin
-* Password: changemeNOW
+* Username: `admin`
+* Password: `changemeNOW`
 
 ### AWS AMI deployment
 
-For the AWS AMI, the Operating System SSH login is centos
+For the AWS AMI, the Operating System SSH login is ubuntu
 
 For the AWS AMI, the default OntoPortal application administrator is 'admin' and the initial password is the Instance ID of the ec2 instance.  Instance ID is a string starting with `i-` followed by alpha-numeric string.  You can find instance ID in the AWS EC2 console or you can get it by running `wget -q -O - http://169.254.169.254/latest/meta-data/instance-id` on the command line after sshing into the appliance.
 
@@ -119,7 +119,7 @@ ip address show dev eth0 | awk '/inet / {print $2}' | cut -d/ -f1
 Open your favorite terminal app in your host OS and connect to the Appliance via SSH:
 
 ```
-$ssh centos@<IP address from the ip command>
+$ssh ubuntu@<IP address from the ip command>
 ```
 
 ### Obtaining the IP address
@@ -166,18 +166,18 @@ if you do not need other internet users to access your system.
 ### Accessing the web UI
 
 From your computer's browser (not in the virtual environment), 
-the Appliance Web UI can be accessed at `http://{ip_address_of_appliance}`. 
+the Appliance Web UI can be accessed at `https//{ip_address_of_appliance}`.
 
 ### Accessing REST services
 
 REST services are available at the following location:
-* `http://{ip_address_of_appliance}:8080`
-* `http://{ip_address_of_appliance}:8080/documentation`
+* `https://{ip_address_of_appliance}:8443`
+* `https://{ip_address_of_appliance}:8443/documentation`
 
 ### Accessing the operating system via ssh
 
-For the AMS AWI installation, you can  SSH to the machine 
-using the username 'centos' and your Amazon private key.
+For the AMS AWI installation, you can SSH to the machine 
+using the username 'ubuntu' and your Amazon private ssh key.
 
 ## Next step
 

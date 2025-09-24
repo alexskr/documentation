@@ -51,15 +51,15 @@ First, review the instructions in the <a href="{{site.baseurl}}/administration/s
 ### 1 set URL for appliance:
 ssh to appliance and change user to ontoportal. 
 
-```
-[centos@appliance ]$ sudo su - ontoportal
+```bash
+[ubuntu@appliance ]$ sudo su - op-admin
 ``` 
-edit /srv/ontoportal/virtual_appliance/appliance_config/site_config.rb and set:
+edit  /opt/ontoportal/config/site_config.rb and set:
 
 ```
 $REST_HOSTNAME = 'appliance.ontoportal.org'
-$REST_PORT = '8080'
-$REST_URL_PREFIX = 'http://appliance.ontoportal.org'
+$REST_PORT = '8443'
+$REST_URL_PREFIX = 'https://appliance.ontoportal.org'
 $UI_HOSTNAME = 'appliance.ontoportal.org'
 $SITE = 'Demo OntoPortal Appliance'
 
@@ -67,21 +67,37 @@ $SITE = 'Demo OntoPortal Appliance'
 
 ### 2. Add custom logo and change the color of the header.
 
-1. Copy your custom logo file to `/srv/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/images/logos/bioportal-logo.png`
-1. Edit `/srv/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/stylesheets/bioportal.scss`
-Set .navbar background color in bioportal.scss to the value you need.
+1. Copy your custom logo file to `/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/images/logos/bioportal-logo.png`
+2. the Copy original theme color variables scss file
+```bash
+cp /opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/app/assets/stylesheets/theme-variables.scss.erb
+/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/app/assets/assets/stylesheets`
+```
+then change change variables like `primary`, `secondary`, `light` variables in the ontoportal section:
+
+ ```ruby
+   "ontoportal"  => {
+    primary: "#5499a4",
+    hover: "#6B96B7",
+    secondary: "#ffc107",
+    light: "#F1F6FA",
+    bg_chip_button_container: "#777777" ,
+    text_chip_button_container: "#FFFFFF !important",
+    login_btn: "#F1F6FA",
+    login_btn_hover_bg: "#CCCCCC",
+  ```
 
 ### 3. Update tagline on the main page: 
-1. edit `/srv/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/config/locales/en.yml`
+1. edit `/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/config/locales/en/appliance-overrides.yml`
  and modify line containing `tagline: your ontology repository for your ontologies`
  
 ### 4. Update footer
 1. Copy original footer from
-`/srv/ontoportal/virtual_appliance/deployment/bioportal_web_ui/views/application/./views/_footer_appliance.html.haml` to
-`/srv/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/views/application/./views/_footer_appliance.html.haml`
+`/opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/views/application/./views/_footer_appliance.html.haml` to
+`/opt/ontoportal/virtual_appliance/appliance_config/bioportal_web_ui/views/application/./views/_footer_appliance.html.haml`
 and make your modifications.
 
-if `/srv/ontoportal/virtual_appliance/deployment/bioportal_web_ui/` is not present then you would need to set up deployment environment by running ./setup_deploy_env.sh
+if `/opt/ontoportal/virtual_appliance/deployment/bioportal_web_ui/` is not present then you would need to set up deployment environment by running ./setup_deploy_env.sh
 
 ### 5. Run deployment
 

@@ -19,7 +19,7 @@ and upload your own ontologies (and/or copies of ours, if they are public).
 
 With this software, you can manage properly formatted semantic content 
 in a web service, and can perform various analytic tasks with that content.
-You can visit the <a href="https://www.bioontologies.org">BioPortal web site</a>
+You can visit the <a href="https://www.bioontology.org">BioPortal web site</a>
 to learn more about the capabilities of the BioPortal system.
 
 ## How is the Appliance packaged?
@@ -33,7 +33,7 @@ and can be obtained by following the <a href="{{site.baseurl}}/administration/st
 
 ## What's included?
 
-The following software is included on the image as of version 3.0:
+The following software is included on the image as of version 4.1:
 
 * Ontologies API (REST service)
 * Annotator and AnnotatorPlus
@@ -42,16 +42,15 @@ The following software is included on the image as of version 3.0:
   * ontology browser
   * Annotator, AnnotatorPlus, and Recommender
   * ontology tree visualization
-  * graph visualization with BioMixer 
+  * graph visualization with BioMixer
   * widgets deployable in other web sites
   * Administrator interface
 * API services
 * RDF stores
-  * 4store
-  * AllegroGraph 
+  * AllegroGraph (default)
+  * 4store (optional)
 * Application Stack:
-  * CentOS 7
-  * Apache HTTPD server
+  * Ubuntu 22.04
   * Nginx
   * Tomcat
   * Redis
@@ -62,14 +61,12 @@ The following software is included on the image as of version 3.0:
 
 ## What else?
 
-This software is provided by the <a href="https://bmir.stanford.edu">Stanford Center for Biomedical Informatics Research</a> (BMIR) and the <a href="https://ontoportal.org">OntoPortal Alliance</a>. 
+This software is provided by the <a href="https://bmir.stanford.edu">Stanford Center for Biomedical Informatics Research</a> (BMIR) and the <a href="https://ontoportal.org">OntoPortal Alliance</a>.
 
-To use this software, you must have a license. 
+To use this software, you must have a license.
 Licenses are provided free to individual users for their own research,
-and to non-profit and educational institutions. 
-See our <a href="{{site.baseurl}}/administration/general/licensing">licensing page</a> for more information. 
+and to non-profit and educational institutions.
+See our <a href="{{site.baseurl}}/administration/general/licensing">licensing page</a> for more information.
 
-The rest of this manual describes how you can obtain, install, configure, 
+The rest of this manual describes how you can obtain, install, configure,
 and maintain the OntoPortal Virtual Appliance for your own purposes.
-
-

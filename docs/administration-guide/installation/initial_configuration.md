@@ -13,14 +13,15 @@ permalink: /administration/steps/initial_configuration
 
 These settings will configure your installation for your environment.
 
-## Replacing 4store with AllegroGraph
+## RDF Backend Configuration
 
-Your {{site.opva}} can use either 4store or (new with version 3.0) AllegroGraph 
-as its RDF backend storage. 
-We use 4store as the default RDF store for the system, as we have much more experience with it to date. If you want to use the AllegroGraph RDF store
-instead of the default 4store RDF store,
-visit the <a href="{{site.baseurl}}/administration/steps/allegrograph_configuration">AllegroGraph Configuration</a>
-page before you begin adding ontologies.
+Your {{site.opva}} can use either 4store or AllegroGraph as its RDF backend storage.
+
+**Version 4 Update**: Starting with version 4.0, the virtual appliance ships with AllegroGraph as the default RDF store. If you want to switch back to using 4store instead of the default AllegroGraph RDF store, visit the <a href="{{site.baseurl}}/administration/steps/4store_configuration">4store Configuration</a> page for detailed instructions.
+
+### Using AllegroGraph (Default in v4)
+
+If you want to keep using AllegroGraph (the default in v4), visit the <a href="{{site.baseurl}}/administration/steps/allegrograph_configuration">AllegroGraph Configuration</a> page for additional configuration options before you begin adding ontologies.
 
 ## Adding ontologies
 
@@ -51,7 +52,7 @@ Here are the available settings:
 ```
 
 Once you have changed your settings, you will need to restart the server 
-by running the command 
+by running the command
 ```
 /sbin/service unicorn restart
 ```

@@ -58,3 +58,6 @@ This release also finally offers more complete understanding of Appliance use,
 as all Appliance users will register their use of the software
 in order to continue operating it in a nag-free way. 
 
+## OntoPortal Virtual Appliance Release 4.0 (2025)
+
+Version 4 of the OntoPortal Appliance updates the base system and service model. It moves from CentOS to Ubuntu, with HTTPS enabled by default, and removes Apache from the stack by switching the frontend to Puma behind an Nginx proxy (the API continues to use Unicorn with Nginx). The default triple store backend changed from 4store to AllegroGraph to improve stability, though 4store remains available for backward compatibility. For security, services now run under dedicated accounts with limited permissions, logs have been consolidated, and throttling is enabled by default. A new opctl utility was added to manage service startup, reset file permissions, and handle related administrative tasks. The release also updates the OntoPortal software stack to more recent versions.
